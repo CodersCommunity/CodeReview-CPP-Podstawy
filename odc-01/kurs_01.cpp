@@ -2,21 +2,25 @@
 
 using namespace std;
 
-int uczniowie,cukierki,x,y;
 
 int main()
 {
-    cout<<"Ilu uczniow jest w Twojej klasie: ";
+	int uczniowie;
+	int cukierki;
+	int x;
+	int y;
+
+	cout<<"Ilu uczniow jest w Twojej klasie: ";
     cin>>uczniowie;
 
     cout<<"Ile cukierkow kupila mama: ";
     cin>>cukierki;
 
     x=cukierki/(uczniowie-1);
-    cout<<"Cukierkow dla kazdego ucznia: "<<x;
+	cout<<"Cukierkow dla kazdego ucznia: "<< x << endl;
 
     y=cukierki-x*(uczniowie-1);
-    cout<<endl<<"Dla Jasia na wieczor: "<<y;
+    cout<<"Dla Jasia na wieczor: "<< y << endl;
 
     return 0;
 }
