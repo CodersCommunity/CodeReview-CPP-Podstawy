@@ -2,12 +2,14 @@
 
 using namespace std;
 
-string imie; int liczba;
 
 int main()
 {
+	string imie;
     cout<<"Podaj imie: ";
-    cin>>imie;
+	cin>>imie;
+
+	int liczba;
     cout<<"Podaj dodatnia liczbe calkowita: ";
     cin>>liczba;
 

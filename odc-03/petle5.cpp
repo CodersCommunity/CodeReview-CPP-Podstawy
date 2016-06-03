@@ -2,10 +2,11 @@
 
 using namespace std;
 
-int populacja=1; int godzin=0;
 
 int main()
 {
+	int populacja=1;
+	int godzin=0;
     while (populacja <= 1000000000)
     {
         godzin++;
