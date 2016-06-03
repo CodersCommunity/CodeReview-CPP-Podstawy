@@ -2,13 +2,14 @@
 
 using namespace std;
 
-float x,y;
-int wybor;
 
 int main()
 {
+	float x;
     cout << "Podaj 1 liczbe: ";
     cin >> x;
+
+	float y;
     cout << "Podaj 2 liczbe: ";
     cin >> y;
 
@@ -20,27 +21,29 @@ int main()
     cout << "3. Mnozenie" << endl;
     cout << "4. Dzielenie" << endl;
 
+	int wybor;
     cout << "Wybierz: ";
     cin >> wybor;
 
     if (wybor==1)
-
-            cout<<"Suma = "<<x+y;
+        cout<<"Suma = "<<x+y<<endl;
 
     else if (wybor==2)
-
-            cout<<"Roznica = "<<x-y;
+        cout<<"Roznica = "<<x-y<<endl;
 
     else if (wybor==3)
-
-            cout<<"Iloczyn = "<<x*y;
+        cout<<"Iloczyn = "<<x*y<<endl;
 
     else if (wybor==4)
+	{
+		if (y==0)
+			cout << "Nie dzielimy przez zero!"<<endl;
+		else
+			cout<<"Iloraz = "<<x/y<<endl;
+	}
 
-            if (y==0) cout << "Nie dzielimy przez zero!";
-            else cout<<"Iloraz = "<<x/y;
-
-    else  cout<<"Nie ma takiej opcji w menu!";
+    else
+		cout<<"Nie ma takiej opcji w menu!"<<endl;
 
     return 0;
 }
