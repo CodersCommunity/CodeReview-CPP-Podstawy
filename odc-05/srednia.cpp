@@ -2,19 +2,20 @@
 
 using namespace std;
 
-float oceny[5]; float suma=0, srednia;
 
 int main()
 {
+	float suma=0;
+	float ocena;
     for(int i=0; i<5; i++)
     {
-        cout<<endl<<"Podaj "<<i+1<<" ocene: ";
-        cin>>oceny[i];
-        suma += oceny[i];
+        cout<<"Podaj "<<i+1<<" ocene: ";
+        cin>>ocena;
+        suma += ocena;
     }
 
-    srednia = suma / 5;
-    cout<<endl<<"srednia = "<<srednia;
+	float srednia = suma / 5;
+    cout<<"srednia = "<<srednia<<endl;
 
     return 0;
 }
