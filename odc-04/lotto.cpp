@@ -1,16 +1,15 @@
 #include <iostream>
 #include <windows.h>
-#include <time.h>
+#include <ctime>
 
 using namespace std;
 
-int liczba;
 
 int main()
 {
-    cout<<"Witaj w losowaniu! Za 3 sekundy nastapi zwolnienie blokady";
+	int liczba;
+    cout<<"Witaj w losowaniu! Za 3 sekundy nastapi zwolnienie blokady\n";
     Sleep(3000);
-    cout<<endl;
 
     srand(time(NULL));
 

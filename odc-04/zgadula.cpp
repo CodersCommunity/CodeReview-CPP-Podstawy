@@ -1,17 +1,21 @@
 #include <iostream>
 #include <cstdlib>
-#include <time.h>
-#include <stdio.h>
+#include <ctime>
+#include <cstdio>
 
 using namespace std;
 
-int liczba, strzal, ile_prob=0;
 
 int main()
 {
     cout<<"Witaj! Pomyslalem sobie liczbe 1..100"<<endl;
     srand(time(NULL));
+
+	int liczba;
     liczba = rand()%100+1;
+
+	int strzal = -1;
+	int ile_prob=0;
 
     while(strzal!=liczba)
     {
@@ -26,11 +30,9 @@ int main()
       else if(strzal<liczba)
         cout<<"To za malo"<<endl;
 
-      else if(strzal>liczba)
+      else
         cout<<"To za duzo"<<endl;
     }
-
-    getchar();getchar(); //dla pewnosci 2 razy
 
     return 0;
 }
