@@ -19,9 +19,7 @@ void wyswietl_stos()
     cout<<"----------------"<<endl;
 
     for (int i=rozmiar; i>=1; i--)
-    {
         cout<<dane[i]<<endl;
-    }
 
     if (rozmiar==0) cout<<"pusty"<<endl;
 
@@ -78,8 +76,10 @@ void size()
 void empty()
 {
 
-    if (rozmiar==0) cout<<endl<<"EMPTY (stos pusty?) ->  TRUE";
-    else cout<<endl<<"EMPTY (stos pusty?) ->  FALSE";
+    if (rozmiar==0)
+		cout<<endl<<"EMPTY (stos pusty?) ->  TRUE";
+    else
+		cout<<endl<<"EMPTY (stos pusty?) ->  FALSE";
     Sleep(2000);
 }
 

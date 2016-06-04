@@ -22,9 +22,7 @@ void wyswietl_kolejke()
 
 
     if (ile==0)
-    {
         cout<<"pusta";
-    }
 
     else
     {
@@ -105,8 +103,10 @@ void size()
 void empty()
 {
 
-    if (ile==0) cout<<endl<<"EMPTY (kolejka pusta?) ->  TRUE";
-    else cout<<endl<<"EMPTY (kolejka pusta?) ->  FALSE";
+    if (ile==0)
+		cout<<endl<<"EMPTY (kolejka pusta?) ->  TRUE";
+    else
+		cout<<endl<<"EMPTY (kolejka pusta?) ->  FALSE";
     Sleep(2000);
 }
 
@@ -155,8 +155,7 @@ int main()
             break;
         }
 
-    }
-    while (wybor != 5);
+    } while (wybor != 5);
 
     return 0;
 }
