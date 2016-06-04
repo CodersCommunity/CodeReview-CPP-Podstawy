@@ -6,13 +6,6 @@
 
 using namespace std;
 
-string temat, nick;
-string tresc[5];
-string odpA[5], odpB[5], odpC[5], odpD[5];
-string poprawna[5];
-string odpowiedz;
-int punkty=0;
-
 int main()
 {
     int nr_linii=1;
@@ -22,33 +15,43 @@ int main()
     fstream plik;
     plik.open("quiz.txt",ios::in);
 
-    if (plik.good()==false)
+    if (!plik.good())
     {
         cout<<"Nie udalo sie otworzyc pliku!";
-        exit(0);
+        return 0;
     }
 
-    while(getline(plik,linia))
-    {
-        switch(nr_linii)
-        {
-            case 1: temat=linia;                     break;
-            case 2: nick=linia;                      break;
-            case 3: tresc[nr_pytania] = linia;       break;
-            case 4: odpA[nr_pytania] = linia;        break;
-            case 5: odpB[nr_pytania] = linia;        break;
-            case 6: odpC[nr_pytania] = linia;        break;
-            case 7: odpD[nr_pytania] = linia;        break;
-            case 8: poprawna[nr_pytania] = linia;    break;
-        }
+	// wczytywanie tematu i nicku
+	string temat;
+	getline (plik, temat);
 
-        if (nr_linii==8) {nr_linii=2; nr_pytania++;}
-        nr_linii++;
-    }
+	string nick;
+	getline (plik, nick);
 
+
+	// przygotowanie do wczytania
+	string tresc[5];
+	string odpA[5], odpB[5], odpC[5], odpD[5]; // wyjatkowo wybaczam, chociaz lepiej byloby to zrobic na tablicy 2d
+	string poprawna[5];
+	string odpowiedz;
+
+	for (int i=0; i<5; ++i)
+	{
+		getline(plik, tresc[i]);
+
+		getline(plik, odpA[i]);
+		getline(plik, odpB[i]);
+		getline(plik, odpC[i]);
+		getline(plik, odpD[i]);
+
+		getline(plik, poprawna[i]);
+	}
     plik.close();
 
-    for (int i=0; i<=4; i++)
+
+	// quiz
+	int punkty=0;
+	for (int i=0; i<=4; i++)
     {
         cout<<endl<<tresc[i]<<endl;
         cout<<"A. "<<odpA[i]<<endl;
@@ -66,11 +69,12 @@ int main()
             cout<<"Dobrze! Zdobywasz punkt!"<<endl;
             punkty++;
         }
-        else cout<<"Zle! Brak punktu! Poprawna odpowiedz: "<<poprawna[i]<<endl;
+        else
+			cout<<"Zle! Brak punktu! Poprawna odpowiedz: "<<poprawna[i]<<endl;
 
     }
 
-    cout<<"Koniec quizu. Zdobyte punkty: "<<punkty;
+    cout<<"Koniec quizu. Zdobyte punkty: "<<punkty << endl;
 
     return 0;
 }

@@ -1,39 +1,32 @@
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 
 using namespace std;
 
-float liczby[100];
 
 int main()
 {
-
-    string linia;
-    int nr_linii=1;
-
     fstream plik;
     plik.open("pomiary.txt", ios::in);
 
-    if(plik.good()==false) cout<<"Nie mozna otworzyc pliku!";
+    if(!plik.good())
+	{
+		cout<<"Nie mozna otworzyc pliku!\n";
+		return 1;
+	}
 
     int licznik=0;
-
+	float liczba;
     while(!plik.eof())
     {
-        getline(plik, linia);
-        liczby[licznik]=atof(linia.c_str());
-        licznik++;
+		plik >> liczba;
+		cout << "Pomiar [" << licznik << "] " << liczba << endl;
+		licznik++;
     }
 
     plik.close();
 
-    cout<<"Ilosc pomiarow: "<<licznik<<endl<<endl;
-
-    for (int i=0; i<licznik; i++)
-    {
-        cout<<liczby[i]<<endl;
-    }
+    cout<<"Ilosc pomiarow: "<<licznik<<endl;
 
     return 0;
 }
