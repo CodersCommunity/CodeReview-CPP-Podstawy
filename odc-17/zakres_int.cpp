@@ -4,21 +4,21 @@
 
 using namespace std;
 
-long long int x;
-unsigned int y;
 
 int main()
 {
-   x=pow(2,32)-1;
-   y=x;
+	long long int x;
+	x=pow(2,32)-1;
 
-   cout<<setprecision(20);
+	unsigned int y = x;
 
-   cout<<"MAX: "<<y<<endl;
+	cout<<setprecision(20);
 
-   cout<<x<<endl;
+	cout<<"MAX: "<<y<<endl;
 
-   cout << sizeof(x) << endl;
+	cout<<x<<endl;
 
-   return 0;
+	cout << sizeof(x) << endl;
+
+	return 0;
 }

@@ -3,16 +3,17 @@
 
 using namespace std;
 
-float liczba;
 
 int main()
 {
 
-   cout << "Podaj liczbe: ";
-   cin>>liczba;
-   cout<<"Round: "<<round(liczba)<<endl;
-   cout<<"Ceil: "<<ceil(liczba)<<endl;
-   cout<<"Floor: "<<floor(liczba)<<endl;
-   cout<<"Trunc: "<<trunc(liczba)<<endl;
-   return 0;
+	cout << "Podaj liczbe: ";
+	cin>>liczba;
+	float liczba;
+
+	cout<<"Round: "<<round(liczba)<<endl;
+	cout<<"Ceil: "<<ceil(liczba)<<endl;
+	cout<<"Floor: "<<floor(liczba)<<endl;
+	cout<<"Trunc: "<<trunc(liczba)<<endl;
+	return 0;
 }
