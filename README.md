@@ -1,5 +1,7 @@
 #Kurs C++
+
 Kod jest podzielony na 3 branche:
+
 1. **master** - zawiera oryginalny kod;
 2. **refactor** - zawiera lekko poprawiony kod, głównie poprawiłem styl;
 3. **better code** - zawiera kod taki jak powinien być napisany, w rezultacie jego działanie może nie pokrywać się w całości z lekcją, ale wciąż jest na poziomie podstawowym i po prostu działa lepiej *(coming soon)*
