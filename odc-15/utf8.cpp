@@ -1,13 +1,13 @@
-﻿#include <iostream>
+#include <iostream>
 
 using namespace std;
 
-string napis;
 
 int main()
 {
     cout<<"Zażółć gęślą jaźń"<<endl;
 
+	string napis;
     cin>>napis;
     cout<<"Wpisany ciąg znaków: "<<napis<<endl;
 

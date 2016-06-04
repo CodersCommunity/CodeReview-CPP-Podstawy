@@ -2,14 +2,14 @@
 
 using namespace std;
 
-string napis;
 
 int main()
 {
-    cout<<"Za¾¢ˆ† g©˜l¥ ja«ä"<<endl;
+    cout<<"Zaï¿½ï¿½ï¿½ï¿½ gï¿½ï¿½lï¿½ jaï¿½ï¿½"<<endl;
 
+	string napis;
     cin>>napis;
-    cout<<"Wpisany ci¥g znak¢w: "<<napis<<endl;
+    cout<<"Wpisany ciï¿½g znakï¿½w: "<<napis<<endl;
 
     return 0;
 }

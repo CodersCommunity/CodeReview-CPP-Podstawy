@@ -4,30 +4,30 @@
 using namespace std;
 
 char *tr(char *str)
-  {
-   static char buff[256];
-   char cp[]="\245\206\251\210\344\242\230\276\253\244\217\250\235\343\340\227\275\215¹æê³ñóœ¿Ÿ¥ÆÊ£ÑÓŒ¯";
-   if(strlen(str)>=sizeof(buff)) return str;
-   char *bf=buff;
-   while(*str)
-     {
-      char *pos=strchr(cp+18,*str);
-      *(bf++)=pos?*(pos-18):*str;
-      ++str;
-     }
-   *bf=0;
-   return buff;
-  }
+{
+	static char buff[256];
+	char cp[]="\245\206\251\210\344\242\230\276\253\244\217\250\235\343\340\227\275\215ï¿½ï¿½ï¿½ï¿½ï¿½óœ¿Ÿï¿½ï¿½Ê£ï¿½ÓŒï¿½ï¿½";
+	if(strlen(str)>=sizeof(buff)) return str;
+	char *bf=buff;
+	while(*str)
+	{
+		char *pos=strchr(cp+18,*str);
+		*(bf++)=pos?*(pos-18):*str;
+		++str;
+	}
 
-string napis;
+	*bf=0;
+	return buff;
+}
+
 
 int main()
 {
+	 cout<<tr("Zaï¿½ï¿½ï¿½ï¿½ gï¿½ï¿½lï¿½ jaï¿½ï¿½")<<endl;
 
-    cout<<tr("Za¿ó³æ gêœl¹ jaŸñ")<<endl;
+	 string napis;
+	 cin>>napis;
+	 cout<<tr("Wpisany ciï¿½g znakï¿½w: ")<<napis;
 
-    cin>>napis;
-    cout<<tr("Wpisany ci¹g znaków: ")<<napis;
-
-    return 0;
+	 return 0;
 }
