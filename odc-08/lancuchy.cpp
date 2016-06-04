@@ -32,7 +32,8 @@ int main()
 
     if (imie[dlugosc_imienia-1]=='a')
         cout<<"Wydaje mi sie, ze jestes kobieta"<<endl;
-    else cout<<"Wydaje mi sie, ze jestes facetem"<<endl;
+    else
+		cout<<"Wydaje mi sie, ze jestes facetem"<<endl;
 
     //odwracanie wyrazow:
     string wyraz;
@@ -41,9 +42,7 @@ int main()
 
     int dlugosc=wyraz.length();
     for (int i=dlugosc-1; i>=0; i--)
-    {
         cout<<wyraz[i];
-    }
 
     //uzycie getline - zapis ze spacjami:
     string napis3;
@@ -79,7 +78,8 @@ int main()
 
     if (pozycja!=string::npos)
         cout << "znaleziono na pozycji: " << pozycja << endl;
-    else cout<<"nie znaleziono"<< endl;
+    else
+		cout<<"nie znaleziono"<< endl;
 
     //Wykasuj czesc lancucha:
     string napis6="Ala ma kota";
