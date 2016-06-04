@@ -2,21 +2,24 @@
 
 using namespace std;
 
-int a,b,c;
 
 int main()
 {
-   cout << "Podaj 3 liczby rozdzielone spacja: ";
-   cin>>a>>b>>c;
+	cout << "Podaj 3 liczby rozdzielone spacja: ";
 
-   if ((a>=b) && (a>=c))
-      cout<<"Najwieksza liczba to "<<a;
+	int a;
+	int b;
+	int c;
+	cin>>a>>b>>c;
 
-   else if ((b>=a) && (b>=c))
-      cout<<"Najwieksza liczba to "<<b;
+	if (a>=b && a>=c)
+		cout<<"Najwieksza liczba to "<<a<<endl;
 
-   else if ((c>=a) && (c>=b))
-      cout<<"Najwieksza liczba to "<<c;
+	else if (b>=a && b>=c)
+		cout<<"Najwieksza liczba to "<<b;
 
-    return 0;
+	else if (c>=a && c>=b)
+		cout<<"Najwieksza liczba to "<<c;
+
+	 return 0;
 }
