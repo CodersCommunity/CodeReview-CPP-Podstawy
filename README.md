@@ -1,9 +1,12 @@
 #Kurs C++
-Repozytorium zawiera zarówno originalny kod (branch *master*) jak i kod po refaktoryzacji (branch *refactor*).
+Kod jest podzielony na 3 branche:
+1. **master** - zawiera oryginalny kod;
+2. **refactor** - zawiera lekko poprawiony kod, głównie poprawiłem styl;
+3. **better code** - zawiera kod taki jak powinien być napisany, w rezultacie jego działanie może nie pokrywać się w całości z lekcją, ale wciąż jest na poziomie podstawowym i po prostu działa lepiej *(coming soon)*
 
 Repozytorium jest podzielone na foldery, w których znajdziecie kod + opis poszczególnych zmian.
 
-Mile widziane pullrequesty.
+Wszelkie uwagi, komentarze *pull requesty* mile widziane.
 
 
 ##Spis treści
