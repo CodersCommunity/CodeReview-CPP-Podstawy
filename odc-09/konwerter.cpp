@@ -2,22 +2,22 @@
 
 using namespace std;
 
-float metry;
 
 float ile_cali(float m)
 {
-   return m*39.37;
+   return m*39.37f;
 }
 
 float ile_jardow(float x);
 
 void ile_mil(float m)
 {
-   cout<<"na mile: "<<m*0.0006213;
+   cout<<"na mile: "<<m*0.0006213f << endl;
 }
 
 int main()
 {
+	float metry;
     cout << "Podaj ile metrow: ";
     cin>>metry;
 
