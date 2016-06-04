@@ -2,16 +2,15 @@
 
 using namespace std;
 
-int ile;
 
 int main()
 {
     cout << "Ile liczb w tablicy: ";
+	int ile;
     cin>>ile;
 
     //dynamiczna alokacja tablicy
-    int *tablica;
-    tablica=new int [ile];
+    int *tablica = new int [ile];
 
     //pokaz kolejne adresy komorek w tablicy
     for (int i=0; i<ile; i++)
@@ -21,8 +20,7 @@ int main()
     }
 
     delete [] tablica;
-    tablica=NULL;
-
+    tablica=nullptr;
 
     return 0;
 }

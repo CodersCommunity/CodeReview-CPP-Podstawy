@@ -9,11 +9,9 @@ float srednia(float &a, float &b, float &c)
 
 int main()
 {
-
-    float a,b,c;
-    a = 1.5;
-    b = 2.3;
-    c = 0.75;
+	float a = 1.5f;
+	float b = 2.3f;
+	float c = 0.75f;
 
     cout<<"Srednia wynosi: "<<srednia(a,b,c);
 

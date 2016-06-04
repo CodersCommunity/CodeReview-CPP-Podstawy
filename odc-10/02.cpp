@@ -1,24 +1,22 @@
 #include <iostream>
-#include <time.h>
+#include <ctime>
 #include <cstdlib>
 
 using namespace std;
 
-int ile;
-clock_t start, stop;
-double czas;
 
 int main()
 {
     cout << "Ile liczb w tablicy: ";
+	int ile;
     cin>>ile;
 
     //dynamiczna alokacja tablicy
-    int *tablica;
-    tablica=new int [ile];
+    int *tablica = new int [ile];
 
     //zacznij odliczac czas
-    start = clock();
+	clock_t stop;
+    clock_t start = clock();
     //wczytywanie liczb do tablicy
     for (int i=0; i<ile; i++)
     {
@@ -26,7 +24,7 @@ int main()
         tablica[i]+=50;
     }
     stop = clock();
-    czas = (double)(stop - start) / CLOCKS_PER_SEC;
+	double czas = (double)(stop - start) / CLOCKS_PER_SEC;
     cout<<"Czas zapisu (bez wskaznika): "<<czas<<" s"<<endl;
 
     delete [] tablica;
