@@ -1,0 +1,12 @@
+language: cpp
+compiler:
+ - g++
+ - clang
+os:
+ - linux
+sudo: required
+dist: trusty
+script: ./script.sh
+branches:
+  only:
+  - refactor
