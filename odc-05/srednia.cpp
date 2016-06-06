@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 int main() {
     float suma = 0;
     float ocena;
@@ -13,7 +12,7 @@ int main() {
     }
 
     float srednia = suma / 5;
-    cout << "srednia = " << srednia << endl;
+    cout << "srednia = " << srednia << "\n";
 
     return 0;
 }

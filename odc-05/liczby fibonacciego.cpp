@@ -3,7 +3,6 @@
 
 using namespace std;
 
-
 int main() {
     long double fib[100000];
     int n;
