@@ -2,13 +2,13 @@
 
 using namespace std;
 
+int main ()
+{
+  cout << "Za���� g��l� ja��" << endl;
 
-int main() {
-    cout << "Za���� g��l� ja��" << endl;
+  string napis;
+  cin >> napis;
+  cout << "Wpisany ci�g znak�w: " << napis << endl;
 
-    string napis;
-    cin >> napis;
-    cout << "Wpisany ci�g znak�w: " << napis << endl;
-
-    return 0;
+  return 0;
 }

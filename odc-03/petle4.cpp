@@ -2,17 +2,19 @@
 
 using namespace std;
 
-int main() {
-    string imie;
-    cout << "Podaj imie: ";
-    cin >> imie;
+int main ()
+{
+  string imie;
+  cout << "Podaj imie: ";
+  cin >> imie;
 
-    int liczba;
-    cout << "Podaj dodatnia liczbe calkowita: ";
-    cin >> liczba;
+  int liczba;
+  cout << "Podaj dodatnia liczbe calkowita: ";
+  cin >> liczba;
 
-    for (int i = 1; i <= liczba; i++) {
-        cout << i << ". " << imie << "\n";
+  for (int i = 1; i <= liczba; i++)
+    {
+      cout << i << ". " << imie << "\n";
     }
-    return 0;
+  return 0;
 }

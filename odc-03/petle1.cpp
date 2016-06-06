@@ -2,11 +2,13 @@
 
 using namespace std;
 
-int main() {
+int main ()
+{
 
-    for (int i = 1; i <= 10; i++) {
-        cout << i << "\n";
+  for (int i = 1; i <= 10; i++)
+    {
+      cout << i << "\n";
     }
 
-    return 0;
+  return 0;
 }
