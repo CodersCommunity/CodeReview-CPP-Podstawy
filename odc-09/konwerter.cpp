@@ -11,7 +11,7 @@ float ile_jardow (float x);
 
 void ile_mil (float m)
 {
-  cout << "na mile: " << m * 0.0006213f << endl;
+  cout << "na mile: " << m * 0.0006213f << "\n";
 }
 
 int main ()
@@ -20,8 +20,8 @@ int main ()
   cout << "Podaj ile metrow: ";
   cin >> metry;
 
-  cout << "na cale: " << ile_cali (metry) << endl;
-  cout << "na jardy: " << ile_jardow (metry) << endl;
+  cout << "na cale: " << ile_cali (metry) << "\n";
+  cout << "na jardy: " << ile_jardow (metry) << "\n";
   ile_mil (metry);
 
   return 0;
@@ -29,5 +29,5 @@ int main ()
 
 float ile_jardow (float x)
 {
-  return x * 1.0936;
+  return (float) (x * 1.0936);
 }

@@ -14,12 +14,10 @@ int main ()
   //pokaz kolejne adresy komorek w tablicy
   for (int i = 0; i < ile; i++)
     {
-      cout << (int) tablica << endl;
-      tablica++;
+      cout << i  << " - " << (tablica + i) << "\n";
     }
 
   delete[] tablica;
-  tablica = nullptr;
 
   return 0;
 }

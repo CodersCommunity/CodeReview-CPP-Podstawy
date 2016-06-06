@@ -20,9 +20,9 @@ int main ()
   fstream plik;
   plik.open ("wizytowka.txt", ios::out | ios::trunc);
 
-  plik << imie << endl;
-  plik << nazwisko << endl;
-  plik << nr_tel << endl;
+  plik << imie << "\n";
+  plik << nazwisko << "\n";
+  plik << nr_tel << "\n";
 
   plik.close ();
 

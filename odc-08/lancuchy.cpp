@@ -6,68 +6,71 @@ using namespace std;
 int main ()
 {
   char napis[20] = "Ala ma kota";
-  cout << napis << endl;
+  cout << napis << "\n";
 
   //spowoduje blad:
   //napis="kot";
-  //cout << napis<<endl;
+  //cout << napis<<"\n";
 
   //nie spowoduje bledu:
-  char *napis2 = "Ala ma kota";
-  cout << napis2 << endl;
-  napis2 = "Inny napis";
-  cout << napis2 << endl;
+  char *napis2 = (char *) "Ala ma kota";
+  cout << napis2 << "\n";
+  napis2 = (char *) "Inny napis";
+  cout << napis2 << "\n";
 
   //pokaz konkretny znak:
-  cout << napis[0] << endl;
+  cout << napis[0] << "\n";
 
   //sprawdz plec uzytkownika:
   string imie;
   cout << "Podaj imie: ";
   cin >> imie;
 
-  int dlugosc_imienia = imie.length ();
-  cout << "Dlugosc: " << dlugosc_imienia << endl;
+  unsigned long dlugosc_imienia = imie.length ();
+  cout << "Dlugosc: " << dlugosc_imienia << "\n";
 
   if (imie[dlugosc_imienia - 1] == 'a')
-    cout << "Wydaje mi sie, ze jestes kobieta" << endl;
+    cout << "Wydaje mi sie, ze jestes kobieta" << "\n";
   else
-    cout << "Wydaje mi sie, ze jestes facetem" << endl;
+    cout << "Wydaje mi sie, ze jestes facetem" << "\n";
 
   //odwracanie wyrazow:
   string wyraz;
   cout << "Podaj wyraz do odwrocenia (bez spacji): ";
   cin >> wyraz;
 
-  int dlugosc = wyraz.length ();
-  for (int i = dlugosc - 1; i >= 0; i--)
-    cout << wyraz[i];
+  int dlugosc = (int) (wyraz.length () - 1);
+  for (int i = dlugosc; i >= 0; i--)
+    {
+      cout << wyraz[i];
+    }
+
 
   //uzycie getline - zapis ze spacjami:
   string napis3;
-  cout << endl << "Podaj wyraz ze spacjami: ";
+  cout << "\n" << "Podaj wyraz ze spacjami: ";
   cin.ignore (); //"wyczysc" strumien
   getline (cin, napis3);
-  cout << napis3 << endl;
+  cout << napis3 << "\n";
 
   //wyznacz dlugosc napisu i wyswietl na ekranie:
-  int dlugosc2 = napis3.length ();
-  cout << dlugosc2 << endl;
+  unsigned long dlugosc2 = napis3.length ();
+  cout << dlugosc2 << "\n";
 
   // laczenie dwoch stringow:
   string jeden = "Ala ma";
   string dwa = " kota";
   string trzy = jeden + dwa;
-  cout << trzy << endl;
+  cout << trzy << "\n";
 
   //Zmiana wielkosci liter:
   string napis4 = "Ala ma kota";
 
   transform (napis4.begin (), napis4.end (), napis4.begin (), ::tolower);
-  cout << napis4 << endl;
+  cout << napis4 << "\n";
 
   transform (napis4.begin (), napis4.end (), napis4.begin (), ::toupper);
-  cout << napis4 << endl;
+  cout << napis4 << "\n";
 
 
   //Znajdz fraze:
@@ -76,24 +79,24 @@ int main ()
   size_t pozycja = napis5.find (szukaj);
 
   if (pozycja != string::npos)
-    cout << "znaleziono na pozycji: " << pozycja << endl;
+    cout << "znaleziono na pozycji: " << pozycja << "\n";
   else
-    cout << "nie znaleziono" << endl;
+    cout << "nie znaleziono" << "\n";
 
   //Wykasuj czesc lancucha:
   string napis6 = "Ala ma kota";
   napis6.erase (3, 3);
-  cout << napis6 << endl;
+  cout << napis6 << "\n";
 
   //Zastap czesc lancucha:
   string napis7 = "Ala ma kota";
   napis7.replace (4, 2, "nie ma");
-  cout << napis7 << endl;
+  cout << napis7 << "\n";
 
   //Wstaw do lancucha:
   string napis8 = "Ala ma kota";
   napis8.insert (11, " Filemona");
-  cout << napis8 << endl;
+  cout << napis8 << "\n";
 
   //Wyciagnij czesc napisu do nowego lancucha:
   string napis9 = "Ala ma kota";

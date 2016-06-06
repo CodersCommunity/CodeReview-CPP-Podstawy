@@ -36,7 +36,6 @@ int main ()
   for (int i = 0; i < 5; ++i)
     {
       getline (plik, tresc[i]);
-
       getline (plik, odpA[i]);
       getline (plik, odpB[i]);
       getline (plik, odpC[i]);
@@ -51,11 +50,11 @@ int main ()
   int punkty = 0;
   for (int i = 0; i <= 4; i++)
     {
-      cout << endl << tresc[i] << endl;
-      cout << "A. " << odpA[i] << endl;
-      cout << "B. " << odpB[i] << endl;
-      cout << "C. " << odpC[i] << endl;
-      cout << "D. " << odpD[i] << endl;
+      cout << "\n" << tresc[i] << "\n";
+      cout << "A. " << odpA[i] << "\n";
+      cout << "B. " << odpB[i] << "\n";
+      cout << "C. " << odpC[i] << "\n";
+      cout << "D. " << odpD[i] << "\n";
 
       cout << "Twoja odpowiedz: ";
       cin >> odpowiedz;
@@ -64,15 +63,15 @@ int main ()
 
       if (odpowiedz == poprawna[i])
         {
-          cout << "Dobrze! Zdobywasz punkt!" << endl;
+          cout << "Dobrze! Zdobywasz punkt!" << "\n";
           punkty++;
         }
       else
-        cout << "Zle! Brak punktu! Poprawna odpowiedz: " << poprawna[i] << endl;
+        cout << "Zle! Brak punktu! Poprawna odpowiedz: " << poprawna[i] << "\n";
 
     }
 
-  cout << "Koniec quizu. Zdobyte punkty: " << punkty << endl;
+  cout << "Koniec quizu. Zdobyte punkty: " << punkty << "\n";
 
   return 0;
 }

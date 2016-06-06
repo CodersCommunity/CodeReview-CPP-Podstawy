@@ -25,9 +25,9 @@ int main ()
 
   plik.close ();
 
-  cout << "imie: " << imie << endl;
-  cout << "nazwisko: " << nazwisko << endl;
-  cout << "telefon: " << nr_tel << endl;
+  cout << "imie: " << imie << "\n";
+  cout << "nazwisko: " << nazwisko << "\n";
+  cout << "telefon: " << nr_tel << "\n";
 
   return 0;
 }

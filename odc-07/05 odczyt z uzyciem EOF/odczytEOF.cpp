@@ -19,13 +19,13 @@ int main ()
   while (!plik.eof ())
     {
       plik >> liczba;
-      cout << "Pomiar [" << licznik << "] " << liczba << endl;
+      cout << "Pomiar [" << licznik << "] " << liczba << "\n";
       licznik++;
     }
 
   plik.close ();
 
-  cout << "Ilosc pomiarow: " << licznik << endl;
+  cout << "Ilosc pomiarow: " << licznik << "\n";
 
   return 0;
 }
