@@ -3,15 +3,13 @@
 
 using namespace std;
 
-int main()
-{
+int main() {
 
-    for (int i=15; i>=0; i--)
-    {
+    for (int i = 15; i >= 0; i--) {
         Sleep(1000);
-		cin.get();
-        cout << i <<endl;
+        cin.get();
+        cout << i << endl;
     }
-    cout<<"JEBUT\n";
+    cout << "JEBUT\n";
     return 0;
 }
