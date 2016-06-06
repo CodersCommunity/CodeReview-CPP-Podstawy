@@ -12,7 +12,7 @@ int main ()
   for (int i = 0; i < ile; ++i)
     {
       cin >> v1 >> v2;
-      cout << 2 * v1 * v2 / (v1 + v2) << endl;
+      cout << 2 * v1 * v2 / (v1 + v2) << "\n";
     }
 
   return 0;
