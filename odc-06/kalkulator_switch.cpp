@@ -15,36 +15,36 @@ int main ()
       cout << "Podaj 2 liczbe: ";
       cin >> y;
 
-      cout << endl;
-      cout << "MENU GLOWNE" << endl;
-      cout << "-----------------" << endl;
-      cout << "1. Dodawanie" << endl;
-      cout << "2. Odejmowanie" << endl;
-      cout << "3. Mnozenie" << endl;
-      cout << "4. Dzielenie" << endl;
-      cout << "5. Koniec programu" << endl;
-      cout << endl;
+      cout << "\n";
+      cout << "MENU GLOWNE" << "\n";
+      cout << "-----------------" << "\n";
+      cout << "1. Dodawanie" << "\n";
+      cout << "2. Odejmowanie" << "\n";
+      cout << "3. Mnozenie" << "\n";
+      cout << "4. Dzielenie" << "\n";
+      cout << "5. Koniec programu" << "\n";
+      cout << "\n";
 
       cin >> wybor;
       switch (wybor)
         {
           case '1':
-            cout << "Suma = " << x + y << endl;
+            cout << "Suma = " << x + y << "\n";
           break;
 
           case '2':
-            cout << "Roznica = " << x - y << endl;
+            cout << "Roznica = " << x - y << "\n";
           break;
 
           case '3':
-            cout << "Iloczyn = " << x * y << endl;
+            cout << "Iloczyn = " << x * y << "\n";
           break;
 
           case '4':
             if (y == 0)
               cout << "Nie dzielimy przez zero!\n";
             else
-              cout << "Iloraz = " << x / y << endl;
+              cout << "Iloraz = " << x / y << "\n";
           break;
 
           case '5':

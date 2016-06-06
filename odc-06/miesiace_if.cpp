@@ -27,7 +27,7 @@ int main ()
       cout << "Podaj rok: ";
       cin >> rok;
 
-      if (rok % 4 == 0 && rok % 100 != 0 || rok % 400 == 0)
+      if ((rok % 4 == 0 && rok % 100 != 0) || rok % 400 == 0)
         cout << "Ten miesiac ma 29 dni!\n";
       else
         cout << "Ten miesiac ma 28 dni!\n";
