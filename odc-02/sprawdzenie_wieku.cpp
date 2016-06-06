@@ -2,9 +2,8 @@
 
 using namespace std;
 
-int wiek;
-
 int main() {
+    int wiek;
     cout << "Ile masz lat: ";
     cin >> wiek;
 
