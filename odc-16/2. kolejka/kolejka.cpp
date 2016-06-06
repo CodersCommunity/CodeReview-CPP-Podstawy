@@ -1,24 +1,22 @@
 #include <iostream>
+#include <thread>
+#ifdef __WIN32
 #include <windows.h>
+#endif
 
 using namespace std;
 
-int dane[5];
-int ile;
-int glowa;
-int ogon;
-
-//------------------------------------------------------------------------
-
-void wyswietl_kolejke ()
+void wyswietl_kolejke (int &ile, int &glowa, int dane[])
 {
+#ifdef __WIN32
   system ("CLS");
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 14);
+#endif
 
-  cout << endl;
-  cout << "-------------------" << endl;
-  cout << "ZAWARTOSC KOLEJKI: " << endl;
-  cout << "-------------------" << endl;
+  cout << "\n";
+  cout << "-------------------" << "\n";
+  cout << "ZAWARTOSC KOLEJKI: " << "\n";
+  cout << "-------------------" << "\n";
 
   if (ile == 0)
     cout << "pusta";
@@ -37,23 +35,25 @@ void wyswietl_kolejke ()
 
     }
 
-  cout << endl << "-------------------" << endl << endl;
+  cout << "\n" << "-------------------" << "\n" << "\n";
 
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 15);
+#endif
 }
 
 //------------------------------------------------------------------------
 
-void push ()
+void push (int &ile, int &ogon, int dane[])
 {
   if (ile >= 5)
     {
-      cout << "Kolejka pelna!";
-      Sleep (1000);
+      cout << "Kolejka pelna!\n";
+      this_thread::sleep_for (chrono::milliseconds (1000));
     }
   else if (ile == 0)
     {
-      cout << endl << "PUSH (jaka liczbe wstawic do kolejki): ";
+      cout << "\n" << "PUSH (jaka liczbe wstawic do kolejki): ";
       cin >> dane[ogon];
       ogon = ogon + 1;
       ile = ile + 1;
@@ -61,7 +61,7 @@ void push ()
     }
   else
     {
-      cout << endl << "PUSH (jaka liczbe wstawic do kolejki): ";
+      cout << "\n" << "PUSH (jaka liczbe wstawic do kolejki): ";
       cin >> dane[ogon];
       ogon = (ogon + 1) % 5;
       ile = ile + 1;
@@ -70,41 +70,41 @@ void push ()
 
 //------------------------------------------------------------------------
 
-void pop ()
+void pop (int &ile, int &glowa, int dane[])
 {
   if (ile == 0)
     {
-      cout << "Kolejka jest pusta!";
-      Sleep (2000);
+      cout << "Kolejka jest pusta!\n";
+      this_thread::sleep_for (chrono::milliseconds (1000));
     }
   else
     {
-      cout << endl << "POP - nastapi usuniecie z kolejki liczby: " << dane[glowa];
+      cout << "POP - nastapi usuniecie z kolejki liczby: " << dane[glowa] << "\n";
       glowa = (glowa + 1) % 5;
       ile = ile - 1;
-      Sleep (2000);
+      this_thread::sleep_for (chrono::milliseconds (1000));
 
     }
 
 }
 //------------------------------------------------------------------------
 
-void size ()
+void size (int &ile)
 {
-  cout << endl << "Liczba elementow w kolejce: " << ile;
-  Sleep (2000);
+  cout << "Liczba elementow w kolejce: " << ile << "\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //------------------------------------------------------------------------
 
-void empty ()
+void empty (int &ile)
 {
 
   if (ile == 0)
-    cout << endl << "EMPTY (kolejka pusta?) ->  TRUE";
+    cout << "EMPTY (kolejka pusta?) ->  TRUE\n";
   else
-    cout << endl << "EMPTY (kolejka pusta?) ->  FALSE";
-  Sleep (2000);
+    cout << "EMPTY (kolejka pusta?) ->  FALSE\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //------------------------------------------------------------------------
@@ -113,47 +113,50 @@ int main ()
 {
 
   int wybor;
-  ile = 0;
-  glowa = 0;
-  ogon = 0;
+  int dane[5];
+  int ile = 0;
+  int glowa = 0;
+  int ogon = 0;
 
   do
     {
 
-      wyswietl_kolejke ();
+      wyswietl_kolejke (ile, glowa, dane);
 
-      cout << "MENU GLOWNE KOLEJKI:" << endl;
-      cout << "------------------------------------------" << endl;
-      cout << "1. PUSH (dodaje element na koniec kolejki) " << endl;
-      cout << "2. POP (usuwa element z poczatku kolejki) " << endl;
-      cout << "3. SIZE (ile elementow w kolejce) " << endl;
-      cout << "4. EMPTY (czy kolejka jest pusta?) " << endl;
-      cout << "5. Koniec programu " << endl;
-      cout << "------------------------------------------" << endl;
+      cout << "MENU GLOWNE KOLEJKI:" << "\n";
+      cout << "------------------------------------------" << "\n";
+      cout << "1. PUSH (dodaje element na koniec kolejki) " << "\n";
+      cout << "2. POP (usuwa element z poczatku kolejki) " << "\n";
+      cout << "3. SIZE (ile elementow w kolejce) " << "\n";
+      cout << "4. EMPTY (czy kolejka jest pusta?) " << "\n";
+      cout << "5. Koniec programu " << "\n";
+      cout << "------------------------------------------" << "\n";
       cout << "Wybor: ";
       cin >> wybor;
 
       switch (wybor)
         {
           case 1:
-            push ();
+            push (ile, ogon, dane);
           break;
 
           case 2:
-            pop ();
+            pop (ile, glowa, dane);
           break;
 
           case 3:
-            size ();
+            size (ile);
           break;
 
           case 4:
-            empty ();
+            empty (ile);
           break;
+
+          case 5:
+            return 0;
         }
 
     }
-  while (wybor != 5);
+  while (true);
 
-  return 0;
 }

@@ -1,32 +1,36 @@
 #include <iostream>
 #include <list>
+#include <chrono>
+#include <thread>
+#ifdef __WIN32
 #include <windows.h>
+#endif
 
 using namespace std;
 
-list<int> lista; //utworzenie listy przechowujacej liczby calkowite
-int wybor;
-
-//---------------------
-
-void wyswietl ()
+void wyswietl (list<int> &lista)
 {
+#ifdef __WIN32
   system ("CLS");
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 10);
-  cout << " ZAWARTOSC LISTY: " << endl;
-  cout << "---------------------------" << endl;
+#endif
+
+  cout << " ZAWARTOSC LISTY: " << "\n";
+  cout << "---------------------------" << "\n";
 
   for (list<int>::iterator i = lista.begin (); i != lista.end (); ++i)
     cout << *i << " ";
 
-  cout << endl;
-  cout << "---------------------------" << endl << endl;
+  cout << "\n";
+  cout << "---------------------------" << "\n" << "\n";
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 15);
+#endif
 }
 
 //-------- 1 ------------
 
-void push_front ()
+void push_front (list<int> &lista)
 {
   int liczba;
   cout << "Podaj jaka liczbe wstawic na pocz\245tek listy: ";
@@ -36,7 +40,7 @@ void push_front ()
 
 //--------- 2 -----------
 
-void push_back ()
+void push_back (list<int> &lista)
 {
   int liczba;
   cout << "Podaj jaka liczbe wstawic na koniec listy: ";
@@ -46,53 +50,53 @@ void push_back ()
 
 //---------- 3 ---------
 
-void pop_front ()
+void pop_front (list<int> &lista)
 {
-  cout << "Nast\245pi usuni\251cie liczby z pocz\245tku listy";
-  Sleep (2000);
+  cout << "Nast\245pi usuni\251cie liczby z pocz\245tku listy" << "\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
   lista.pop_front ();
 }
 
 //---------- 4 ---------
 
-void pop_back ()
+void pop_back (list<int> &lista)
 {
-  cout << "Nast\245pi usuni\251cie liczby z konca listy";
-  Sleep (2000);
+  cout << "Nast\245pi usuni\251cie liczby z konca listy" << "\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
   lista.pop_back ();
 }
 
 //---------- 5 ----------
 
-void size ()
+void size (list<int> &lista)
 {
-  cout << "Liczb na li\230cie: " << lista.size ();
-  Sleep (2000);
+  cout << "Liczb na li\230cie: " << lista.size () << "\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //---------- 6 ----------
 
-void max_size ()
+void max_size (list<int> &lista)
 {
-  cout << "Max liczb na li\230cie: " << lista.max_size ();
-  Sleep (5000);
+  cout << "Max liczb na li\230cie: " << lista.max_size () << "\n";
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //---------- 7 ----------
 
-void empty ()
+void empty (list<int> &lista)
 {
   cout << "Czy lista pusta? -> ";
   if (lista.empty () == 1)
     cout << "TRUE";
   else
     cout << "FALSE";
-  Sleep (2000);
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //---------- 8 ----------
 
-void remove ()
+void remove (list<int> &lista)
 {
   int liczba;
   cout << "Usun z listy wszystkie liczby rowne: ";
@@ -102,102 +106,107 @@ void remove ()
 
 //---------- 9 ----------
 
-void sort ()
+void sort (list<int> &lista)
 {
-  cout << "Nastapi posortowanie listy! ";
+  cout << "Nastapi posortowanie listy!\n";
   lista.sort ();
-  Sleep (2000);
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //---------- 10 ----------
 
-void reverse ()
+void reverse (list<int> &lista)
 {
-  cout << "Nastapi odwrocenie kolejnosci liczb!";
+  cout << "Nastapi odwrocenie kolejnosci liczb!\n";
   lista.reverse ();
-  Sleep (2000);
+  this_thread::sleep_for (chrono::milliseconds (1000));
 }
 
 //---------- 11 ----------
 
 void exit ()
 {
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 12);
-  cout << "Koniec programu!";
-  Sleep (2000);
+#endif
+  cout << "Koniec programu!\n";
+  this_thread::sleep_for (chrono::microseconds (2000));
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 0);
+#endif
 }
 //------------------------
 
 int main ()
 {
+  list<int> lista; //utworzenie listy przechowujacej liczby calkowite
+  int wybor;
 
   do
     {
 
-      wyswietl ();
+      wyswietl (lista);
 
-      cout << " MENU GLOWNE LISTY:" << endl;
-      cout << "---------------------------" << endl;
-      cout << "1.  push_front" << endl;
-      cout << "2.  push_back" << endl;
-      cout << "3.  pop_front" << endl;
-      cout << "4.  pop_back" << endl;
-      cout << "5.  size" << endl;
-      cout << "6.  max_size" << endl;
-      cout << "7.  empty" << endl;
-      cout << "8.  remove" << endl;
-      cout << "9.  sort" << endl;
-      cout << "10. reverse" << endl;
-      cout << "11. exit" << endl;
-      cout << "---------------------------" << endl;
+      cout << " MENU GLOWNE LISTY:" << "\n";
+      cout << "---------------------------" << "\n";
+      cout << "1.  push_front" << "\n";
+      cout << "2.  push_back" << "\n";
+      cout << "3.  pop_front" << "\n";
+      cout << "4.  pop_back" << "\n";
+      cout << "5.  size" << "\n";
+      cout << "6.  max_size" << "\n";
+      cout << "7.  empty" << "\n";
+      cout << "8.  remove" << "\n";
+      cout << "9.  sort" << "\n";
+      cout << "10. reverse" << "\n";
+      cout << "11. exit" << "\n";
+      cout << "---------------------------" << "\n";
       cout << "Wybor: ";
       cin >> wybor;
 
       switch (wybor)
         {
           case 1:
-            push_front ();
+            push_front (lista);
           break;
           case 2:
-            push_back ();
+            push_back (lista);
           break;
           case 3:
-            pop_front ();
+            pop_front (lista);
           break;
           case 4:
-            pop_back ();
+            pop_back (lista);
           break;
           case 5:
-            size ();
+            size (lista);
           break;
           case 6:
-            max_size ();
+            max_size (lista);
           break;
           case 7:
-            empty ();
+            empty (lista);
           break;
           case 8:
-            remove ();
+            remove (lista);
           break;
           case 9:
-            sort ();
+            sort (lista);
           break;
           case 10:
-            reverse ();
+            reverse (lista);
           break;
           case 11:
             exit ();
-          break;
+            return 0;
 
           default:
-            cout << "POMYLKA!";
-          Sleep (2000);
+            cout << "POMYLKA!\n";
+          this_thread::sleep_for (chrono::milliseconds (1000));
           break;
         }
 
     }
-  while (wybor != 11);
+  while (true);
 
-  return 0;
 }
