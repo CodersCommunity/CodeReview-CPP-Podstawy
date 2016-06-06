@@ -7,10 +7,10 @@ int main() {
     int godzin = 0;
     do {
         godzin++;
-        populacja = populacja * 2;
+        populacja *= 2;
 
-        cout << "minelo godzin: " << godzin;
-        cout << " liczba bakterii: " << populacja << endl;
+        cout << "Minelo godzin: " << godzin;
+        cout << " liczba bakterii: " << populacja << "\n";
     } while (populacja <= 1000000000);
 
     return 0;
