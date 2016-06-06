@@ -4,11 +4,11 @@
 
 using namespace std;
 
-int main()
+int main ()
 {
-    cout<<setprecision(20);
-    cout << M_PI << endl;
-    cout << M_E <<endl;
+  cout << setprecision (20);
+  cout << M_PI << endl;
+  cout << M_E << endl;
 
-    return 0;
+  return 0;
 }

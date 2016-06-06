@@ -2,21 +2,20 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-	string PIN;
-    cout << "Witaj w naszym banku!" << endl;
-    cout << "Podaj numer PIN:";
-    cin >> PIN;
+  string PIN;
+  cout << "Witaj w naszym banku!" << endl;
+  cout << "Podaj numer PIN:";
+  cin >> PIN;
 
-    if(PIN=="1729")
+  if (PIN == "1729")
     {
-        cout<<"Poprawny PIN"<<endl;
+      cout << "Poprawny PIN" << endl;
     }
-    else
+  else
     {
-        cout<<"Niepoprawny PIN"<<endl;
+      cout << "Niepoprawny PIN" << endl;
     }
-    return 0;
+  return 0;
 }

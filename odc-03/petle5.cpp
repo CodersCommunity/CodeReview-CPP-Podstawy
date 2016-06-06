@@ -2,18 +2,17 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-	int populacja=1;
-	int godzin=0;
-    while (populacja <= 1000000000)
+  int populacja = 1;
+  int godzin = 0;
+  while (populacja <= 1000000000)
     {
-        godzin++;
-        populacja = populacja*2;
+      godzin++;
+      populacja *= 2;
 
-        cout<<"minelo godzin: "<<godzin;
-        cout<<" liczba bakterii: "<<populacja<<endl;
+      cout << "Minelo godzin: " << godzin;
+      cout << " liczba bakterii: " << populacja << "\n";
     }
-    return 0;
+  return 0;
 }

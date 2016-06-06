@@ -2,21 +2,20 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-	string login;
-    cout << "Podaj login: ";
-    cin >> login;
+  string login;
+  cout << "Podaj login: ";
+  cin >> login;
 
-	string haslo;
-    cout << "Podaj haslo: ";
-    cin >> haslo;
+  string haslo;
+  cout << "Podaj haslo: ";
+  cin >> haslo;
 
-    if (login=="admin" && haslo=="szarlotka")
-        cout<<"Udalo sie zalogowac!\n";
-    else
-        cout<<"nie udalo sie zalogowac!\n";
+  if (login == "admin" && haslo == "szarlotka")
+    cout << "Udalo sie zalogowac!\n";
+  else
+    cout << "nie udalo sie zalogowac!\n";
 
-    return 0;
+  return 0;
 }

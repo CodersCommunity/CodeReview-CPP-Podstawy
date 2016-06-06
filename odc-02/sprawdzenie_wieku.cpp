@@ -2,24 +2,23 @@
 
 using namespace std;
 
-int wiek;
-
-int main()
+int main ()
 {
-    cout << "Ile masz lat: ";
-    cin >> wiek;
+  int wiek;
+  cout << "Ile masz lat: ";
+  cin >> wiek;
 
-    if (wiek<18)
+  if (wiek < 18)
     {
-        cout<<"Nie jestes pelnoletni i nie mozesz zostac prezydentem";
+      cout << "Nie jestes pelnoletni i nie mozesz zostac prezydentem";
     }
-    else if ((wiek>=18) && (wiek<35))
+  else if ((wiek >= 18) && (wiek < 35))
     {
-        cout<<"Jestes pelnoletni ale nie mozesz zostac prezydentem";
+      cout << "Jestes pelnoletni ale nie mozesz zostac prezydentem";
     }
-    else
+  else
     {
-        cout<<"Jestes pelnoletni i mozesz zostac prezydentem";
+      cout << "Jestes pelnoletni i mozesz zostac prezydentem";
     }
-    return 0;
+  return 0;
 }

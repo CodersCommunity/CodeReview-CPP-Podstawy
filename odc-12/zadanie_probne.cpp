@@ -2,14 +2,13 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-	int a;
-	int b;
+  int a;
+  int b;
 
-    cin>>a>>b;
-    cout<<a+b<<endl;
+  cin >> a >> b;
+  cout << a + b << endl;
 
-    return 0;
+  return 0;
 }

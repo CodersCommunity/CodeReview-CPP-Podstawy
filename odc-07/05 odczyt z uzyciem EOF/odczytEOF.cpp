@@ -3,30 +3,29 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-    fstream plik;
-    plik.open("pomiary.txt", ios::in);
+  fstream plik;
+  plik.open ("pomiary.txt", ios::in);
 
-    if(!plik.good())
-	{
-		cout<<"Nie mozna otworzyc pliku!\n";
-		return 1;
-	}
-
-    int licznik=0;
-	float liczba;
-    while(!plik.eof())
+  if (!plik.good ())
     {
-		plik >> liczba;
-		cout << "Pomiar [" << licznik << "] " << liczba << endl;
-		licznik++;
+      cout << "Nie mozna otworzyc pliku!\n";
+      return 1;
     }
 
-    plik.close();
+  int licznik = 0;
+  float liczba;
+  while (!plik.eof ())
+    {
+      plik >> liczba;
+      cout << "Pomiar [" << licznik << "] " << liczba << "\n";
+      licznik++;
+    }
 
-    cout<<"Ilosc pomiarow: "<<licznik<<endl;
+  plik.close ();
 
-    return 0;
+  cout << "Ilosc pomiarow: " << licznik << "\n";
+
+  return 0;
 }

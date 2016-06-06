@@ -3,29 +3,28 @@
 
 using namespace std;
 
-
-int main()
+int main ()
 {
-    cout << "Podaj imie: ";
-	string imie;
-	cin>>imie;
+  cout << "Podaj imie: ";
+  string imie;
+  cin >> imie;
 
-	cout << "Podaj nazwisko: ";
-	string nazwisko;
-	cin>>nazwisko;
+  cout << "Podaj nazwisko: ";
+  string nazwisko;
+  cin >> nazwisko;
 
-	cout << "Podaj nr telefonu: ";
-	int nr_tel;
-	cin>>nr_tel;
+  cout << "Podaj nr telefonu: ";
+  int nr_tel;
+  cin >> nr_tel;
 
-    fstream plik;
-    plik.open("wizytowka.txt",ios::out | ios::app);
+  fstream plik;
+  plik.open ("wizytowka.txt", ios::out | ios::app);
 
-    plik<<imie<<endl;
-    plik<<nazwisko<<endl;
-    plik<<nr_tel<<endl;
+  plik << imie << "\n";
+  plik << nazwisko << "\n";
+  plik << nr_tel << "\n";
 
-    plik.close();
+  plik.close ();
 
-    return 0;
+  return 0;
 }

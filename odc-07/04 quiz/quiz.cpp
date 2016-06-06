@@ -1,80 +1,77 @@
 #include <iostream>
 #include <fstream>
-#include <cstdlib>
 #include <algorithm>
-#include <string>
 
 using namespace std;
 
-int main()
+int main ()
 {
-    int nr_linii=1;
-    string linia;
-    int nr_pytania=0;
+  int nr_linii = 1;
+  string linia;
+  int nr_pytania = 0;
 
-    fstream plik;
-    plik.open("quiz.txt",ios::in);
+  fstream plik;
+  plik.open ("quiz.txt", ios::in);
 
-    if (!plik.good())
+  if (!plik.good ())
     {
-        cout<<"Nie udalo sie otworzyc pliku!";
-        return 0;
+      cout << "Nie udalo sie otworzyc pliku!";
+      return 0;
     }
 
-	// wczytywanie tematu i nicku
-	string temat;
-	getline (plik, temat);
+  // wczytywanie tematu i nicku
+  string temat;
+  getline (plik, temat);
 
-	string nick;
-	getline (plik, nick);
-
-
-	// przygotowanie do wczytania
-	string tresc[5];
-	string odpA[5], odpB[5], odpC[5], odpD[5]; // wyjatkowo wybaczam, chociaz lepiej byloby to zrobic na tablicy 2d
-	string poprawna[5];
-	string odpowiedz;
-
-	for (int i=0; i<5; ++i)
-	{
-		getline(plik, tresc[i]);
-
-		getline(plik, odpA[i]);
-		getline(plik, odpB[i]);
-		getline(plik, odpC[i]);
-		getline(plik, odpD[i]);
-
-		getline(plik, poprawna[i]);
-	}
-    plik.close();
+  string nick;
+  getline (plik, nick);
 
 
-	// quiz
-	int punkty=0;
-	for (int i=0; i<=4; i++)
+  // przygotowanie do wczytania
+  string tresc[5];
+  string odpA[5], odpB[5], odpC[5], odpD[5]; // wyjatkowo wybaczam, chociaz lepiej byloby to zrobic na tablicy 2d
+  string poprawna[5];
+  string odpowiedz;
+
+  for (int i = 0; i < 5; ++i)
     {
-        cout<<endl<<tresc[i]<<endl;
-        cout<<"A. "<<odpA[i]<<endl;
-        cout<<"B. "<<odpB[i]<<endl;
-        cout<<"C. "<<odpC[i]<<endl;
-        cout<<"D. "<<odpD[i]<<endl;
+      getline (plik, tresc[i]);
+      getline (plik, odpA[i]);
+      getline (plik, odpB[i]);
+      getline (plik, odpC[i]);
+      getline (plik, odpD[i]);
 
-        cout<<"Twoja odpowiedz: ";
-        cin>>odpowiedz;
+      getline (plik, poprawna[i]);
+    }
+  plik.close ();
 
-        transform(odpowiedz.begin(), odpowiedz.end(), odpowiedz.begin(), ::tolower);
 
-        if (odpowiedz==poprawna[i])
+  // quiz
+  int punkty = 0;
+  for (int i = 0; i <= 4; i++)
+    {
+      cout << "\n" << tresc[i] << "\n";
+      cout << "A. " << odpA[i] << "\n";
+      cout << "B. " << odpB[i] << "\n";
+      cout << "C. " << odpC[i] << "\n";
+      cout << "D. " << odpD[i] << "\n";
+
+      cout << "Twoja odpowiedz: ";
+      cin >> odpowiedz;
+
+      transform (odpowiedz.begin (), odpowiedz.end (), odpowiedz.begin (), ::tolower);
+
+      if (odpowiedz == poprawna[i])
         {
-            cout<<"Dobrze! Zdobywasz punkt!"<<endl;
-            punkty++;
+          cout << "Dobrze! Zdobywasz punkt!" << "\n";
+          punkty++;
         }
-        else
-			cout<<"Zle! Brak punktu! Poprawna odpowiedz: "<<poprawna[i]<<endl;
+      else
+        cout << "Zle! Brak punktu! Poprawna odpowiedz: " << poprawna[i] << "\n";
 
     }
 
-    cout<<"Koniec quizu. Zdobyte punkty: "<<punkty << endl;
+  cout << "Koniec quizu. Zdobyte punkty: " << punkty << "\n";
 
-    return 0;
+  return 0;
 }
