@@ -1,45 +1,45 @@
 #include <iostream>
+#include <thread>
+#ifdef __WIN32
 #include <windows.h>
-
+#endif
 using namespace std;
 
-int dane[6];
-int rozmiar;
-
-//------------------------------------------------------------------------
-
-void wyswietl_stos ()
+void wyswietl_stos (int &rozmiar, int dane[])
 {
+#ifdef __WIN32
   system ("CLS");
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 14);
+#endif
 
-  cout << endl;
-  cout << "----------------" << endl;
-  cout << "ZAWARTOSC STOSU:" << endl;
-  cout << "----------------" << endl;
+  cout << "\n";
+  cout << "----------------\n";
+  cout << "ZAWARTOSC STOSU:\n";
+  cout << "----------------\n";
 
   for (int i = rozmiar; i >= 1; i--)
-    cout << dane[i] << endl;
+    cout << dane[i] << "\n";
 
-  if (rozmiar == 0) cout << "pusty" << endl;
+  if (rozmiar == 0) cout << "pusty\n";
 
-  cout << "----------------" << endl << endl;
-
+  cout << "----------------\n\n";
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 15);
+#endif
 }
 
 //------------------------------------------------------------------------
 
-void push ()
+void push (int &rozmiar, int dane[])
 {
   if (rozmiar >= 5)
     {
-      cout << "Stos pelny!";
-      Sleep (1000);
+      cout << "Stos pelny!\n";
+      this_thread::sleep_for (chrono::milliseconds (1000));
     }
   else
     {
-      cout << endl << "PUSH (jaka liczbe polozyc na stosie): ";
+      cout << "\n" << "PUSH (jaka liczbe polozyc na stosie): ";
 
       rozmiar = rozmiar + 1;
       cin >> dane[rozmiar];
@@ -48,39 +48,39 @@ void push ()
 
 //------------------------------------------------------------------------
 
-void pop ()
+void pop (int &rozmiar, int dane[])
 {
   if (rozmiar >= 1)
     {
-      cout << endl << "POP - nastapi usuniecie ze stosu liczby: " << dane[rozmiar];
-      Sleep (2000);
+      cout << "\n" << "POP - nastapi usuniecie ze stosu liczby: " << dane[rozmiar];
+      this_thread::sleep_for (chrono::milliseconds (2000));
 
       rozmiar = rozmiar - 1;
     }
   else
     {
-      cout << "Stos pusty!";
-      Sleep (1000);
+      cout << "Stos pusty!\n";
+      this_thread::sleep_for (chrono::milliseconds (1000));
     }
 }
 //------------------------------------------------------------------------
 
-void size ()
+void size (int &rozmiar)
 {
-  cout << endl << "Liczba elementow na stosie: " << rozmiar;
-  Sleep (2000);
+  cout << "\nLiczba elementow na stosie: " << rozmiar << "\n";
+  this_thread::sleep_for (chrono::milliseconds (2000));
 }
 
 //------------------------------------------------------------------------
 
-void empty ()
+void empty (int &rozmiar)
 {
 
   if (rozmiar == 0)
-    cout << endl << "EMPTY (stos pusty?) ->  TRUE";
+    cout << "EMPTY (stos pusty?) ->  TRUE\n";
   else
-    cout << endl << "EMPTY (stos pusty?) ->  FALSE";
-  Sleep (2000);
+    cout << "EMPTY (stos pusty?) ->  FALSE\n";
+  this_thread::sleep_for (chrono::milliseconds (2000));
 }
 
 //------------------------------------------------------------------------
@@ -88,47 +88,49 @@ void empty ()
 
 int main ()
 {
+  int dane[6];
+  int rozmiar;
 
   int wybor;
   rozmiar = 0;
 
   do
     {
-      wyswietl_stos ();
+      wyswietl_stos (rozmiar, dane);
 
-      cout << "MENU GLOWNE STOSU:" << endl;
-      cout << "------------------------------------------" << endl;
-      cout << "1. PUSH (dodaje element na szczyt stosu) " << endl;
-      cout << "2. POP (usuwa element ze szczytu stosu) " << endl;
-      cout << "3. SIZE (ile elementow na stosie) " << endl;
-      cout << "4. EMPTY (czy stos jest pusty?) " << endl;
-      cout << "5. Koniec programu " << endl;
-      cout << "------------------------------------------" << endl;
+      cout << "MENU GLOWNE STOSU:" << "\n";
+      cout << "------------------------------------------" << "\n";
+      cout << "1. PUSH (dodaje element na szczyt stosu) " << "\n";
+      cout << "2. POP (usuwa element ze szczytu stosu) " << "\n";
+      cout << "3. SIZE (ile elementow na stosie) " << "\n";
+      cout << "4. EMPTY (czy stos jest pusty?) " << "\n";
+      cout << "5. Koniec programu " << "\n";
+      cout << "------------------------------------------" << "\n";
       cout << "Wybor: ";
       cin >> wybor;
 
       switch (wybor)
         {
           case 1:
-            push ();
+            push (rozmiar, dane);
           break;
 
           case 2:
-            pop ();
+            pop (rozmiar, dane);
           break;
 
           case 3:
-            size ();
+            size (rozmiar);
           break;
 
           case 4:
-            empty ();
+            empty (rozmiar);
           break;
+          case 5:
+            return 0;
 
         }
-
     }
-  while (wybor != 5);
+  while (true);
 
-  return 0;
 }
