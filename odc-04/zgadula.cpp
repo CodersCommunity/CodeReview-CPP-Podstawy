@@ -14,15 +14,17 @@ int main() {
     int strzal = -1;
     int ile_prob = 0;
 
-    while (strzal != liczba) {
+    while (true) {
         ile_prob++;
 
         cout << "Zgadnij jaka (to Twoja " << ile_prob << " proba): ";
         cin >> strzal;
 
         if (strzal == liczba)
+        {
             cout << "Udalo sie! Wygrywasz w " << ile_prob << " probie" << endl;
-
+            return 0;
+        }
         else if (strzal < liczba)
             cout << "To za malo" << endl;
 
@@ -30,5 +32,4 @@ int main() {
             cout << "To za duzo" << endl;
     }
 
-    return 0;
 }
