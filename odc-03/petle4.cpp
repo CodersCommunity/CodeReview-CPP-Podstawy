@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 int main() {
     string imie;
     cout << "Podaj imie: ";
@@ -13,7 +12,7 @@ int main() {
     cin >> liczba;
 
     for (int i = 1; i <= liczba; i++) {
-        cout << i << ". " << imie << endl;
+        cout << i << ". " << imie << "\n";
     }
     return 0;
 }

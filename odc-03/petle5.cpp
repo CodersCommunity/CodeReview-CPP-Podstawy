@@ -2,7 +2,6 @@
 
 using namespace std;
 
-
 int main() {
     int populacja = 1;
     int godzin = 0;
