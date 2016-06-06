@@ -1,12 +1,11 @@
 #include <iostream>
-#include <conio.h>
 
 using namespace std;
 
 int main ()
 {
   char wybor = 'e';
-  while (wybor != '5')
+  while (true)
     {
       float x;
       cout << "Podaj 1 liczbe: ";
@@ -26,7 +25,7 @@ int main ()
       cout << "5. Koniec programu" << endl;
       cout << endl;
 
-      wybor = getch ();
+      cin >> wybor;
       switch (wybor)
         {
           case '1':
@@ -50,11 +49,10 @@ int main ()
 
           case '5':
             return 0;
-          break;
 
           default:
             cout << "Nie ma takiej opcji w menu!\n";
         }
     }
-  return 0;
+
 }
