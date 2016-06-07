@@ -1,5 +1,8 @@
 #include <iostream>
+#include <thread>
+#ifdef __WIN32
 #include <windows.h>
+#endif
 
 using namespace std;
 
@@ -8,6 +11,7 @@ int wybor;
 int *korzen;
 
 //-------- VOID USTAWIAJACY KURSOR W MIEJSCU X,Y NA EKRANIE --------
+#ifdef __WIN32
 
 void gotoxy (int x, int y)
 {
@@ -16,6 +20,13 @@ void gotoxy (int x, int y)
   c.Y = y - 1;
   SetConsoleCursorPosition (GetStdHandle (STD_OUTPUT_HANDLE), c);
 }
+#endif
+#ifdef __linux__
+void gotoxy (int x, int y)
+{
+    printf("%c[%d;%df",0x1B,y,x);
+}
+#endif
 
 //-------------------------- ZMIENNE ------------------------------
 
@@ -25,8 +36,14 @@ bool pusty[16];
 //----------------------- WYSWIETLANIE DRZEWA -----------------------
 void wyswietl_drzewo ()
 {
+#ifdef __WIN32
   system ("CLS");
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 14);
+#endif
+#ifdef __linux__
+ system("clear");
+#endif
+
   //wyswietlenie drzewa
   gotoxy (40, 1);
   if (pusty[1])
@@ -118,7 +135,9 @@ void wyswietl_drzewo ()
     cout << dane[15];
 
   cout << endl << endl << endl;
+#ifdef __WIN32
   SetConsoleTextAttribute (GetStdHandle (STD_OUTPUT_HANDLE), 15);
+#endif
 }
 
 //------------------- DODAJ LICZBE DO DRZEWA ------------------------
@@ -129,7 +148,7 @@ void add ()
   cin >> liczba;
 
   //drzewo puste
-  if (pusty[1] == true)
+  if (pusty[1])
     {
       korzen = &dane[1];
       *korzen = liczba;
@@ -140,9 +159,9 @@ void add ()
       bool znalazlem_miejsce = false;
       int wezel = 1;
 
-      while (znalazlem_miejsce == false)
+      while (!znalazlem_miejsce)
         {
-          if (pusty[wezel] == true)
+          if (pusty[wezel])
             {
               znalazlem_miejsce = true;
               dane[wezel] = liczba;
@@ -162,7 +181,7 @@ void add ()
           if (wezel > 15)
             {
               cout << "Potrzebne byloby wieksze drzewo!";
-              Sleep (3000);
+              this_thread::sleep_for (chrono::milliseconds (3000));
               znalazlem_miejsce = true;
             }
         }
@@ -178,12 +197,12 @@ void find ()
   bool znalazlem = false;
   int wezel = 1;
 
-  while (znalazlem == false)
+  while (!znalazlem)
     {
       if (liczba == dane[wezel])
         {
           cout << "Znaleziono liczbe w wezle nr: " << wezel;
-          Sleep (3000);
+          this_thread::sleep_for (chrono::milliseconds (3000));
 
           znalazlem = true;
         }
@@ -200,7 +219,7 @@ void find ()
       if (wezel > 15)
         {
           cout << "Nie znaleziono!";
-          Sleep (3000);
+          this_thread::sleep_for (chrono::milliseconds (3000));
           znalazlem = true;
         }
     }
@@ -237,9 +256,11 @@ int main ()
           case 2:
             find ();
           break;
+          case 3:
+            return 0;
         }
 
     }
-  while (wybor != 3);
-  return 0;
+  while (true);
+
 }

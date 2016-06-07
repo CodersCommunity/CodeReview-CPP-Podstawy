@@ -1,6 +1,5 @@
 #include <iostream>
-#include <windows.h>
-
+#include <chrono>
 using namespace std;
 
 void sortowanie_babelkowe (int *tab, int n)
@@ -52,8 +51,10 @@ void quicksort (int *tablica, int lewy, int prawy)
 
 int main ()
 {
+  //inicjowanie generatora
+  srand (time (NULL));
 
-  cout << "Porownanie czasow sortowania v.1" << endl;
+  cout << "Porownanie czasow sortowania v.1" << "\n";
   cout << "Ile losowych liczb w tablicy: ";
   int ile;
   cin >> ile;
@@ -65,8 +66,7 @@ int main ()
   int *tablica2;
   tablica2 = new int[ile];
 
-  //inicjowanie generatora
-  srand (time (NULL));
+
 
   //wczytywanie losowych liczb do tablicy
   for (int i = 0; i < ile; i++)
@@ -77,24 +77,23 @@ int main ()
     tablica2[i] = tablica[i];
 
 
-  // bs
-  clock_t start, stop;
-  cout << "Sortuje teraz babelkowo. Prosze czekac!" << endl;
-  start = clock ();
+  // Sortwanie bąbelkowe
+  cout << "Sortuje teraz babelkowo. Prosze czekac!" << "\n";
+  auto start = chrono::high_resolution_clock::now ();
   sortowanie_babelkowe (tablica, ile);
+  auto stop = chrono::high_resolution_clock::now ();
 
-  stop = clock ();
-  double czas = (double) (stop - start) / CLOCKS_PER_SEC;
-  cout << endl << "Czas sortowania babelkowego: " << czas << " s" << endl;
+  double czas = chrono::duration_cast<chrono::milliseconds> (stop - start).count ();
+  cout << "\n" << "Czas sortowania babelkowego: " << czas << " ms" << "\n";
 
-  // qs
-  cout << endl << "Sortuje teraz algorytmem quicksort. Prosze czekac!" << endl;
-  start = clock ();
+  // Sortowanie QuickSort
+  cout << "\n" << "Sortuje teraz algorytmem quicksort. Prosze czekac!" << "\n";
+  start = chrono::high_resolution_clock::now ();
   quicksort (tablica2, 0, ile - 1);
+  stop = chrono::high_resolution_clock::now ();
 
-  stop = clock ();
-  czas = (double) (stop - start) / CLOCKS_PER_SEC;
-  cout << endl << "Czas sortowania quicksort: " << czas << " s" << endl;
+  czas = chrono::duration_cast<chrono::milliseconds> (stop - start).count ();
+  cout << "\n" << "Czas sortowania quicksort: " << czas << " ms" << "\n";
 
   delete[] tablica;
   delete[] tablica2;

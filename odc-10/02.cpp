@@ -1,5 +1,5 @@
 #include <iostream>
-#include <ctime>
+#include <chrono>
 
 using namespace std;
 
@@ -13,17 +13,17 @@ int main ()
   int *tablica = new int[ile];
 
   //zacznij odliczac czas
-  clock_t stop;
-  clock_t start = clock ();
+  auto start = chrono::high_resolution_clock::now ();
   //wczytywanie liczb do tablicy
   for (int i = 0; i < ile; i++)
     {
       tablica[i] = i;
       tablica[i] += 50;
     }
-  stop = clock ();
-  double czas = (double) (stop - start) / CLOCKS_PER_SEC;
-  cout << "Czas zapisu (bez wskaznika): " << czas << " s" << endl;
+  auto stop = chrono::high_resolution_clock::now ();
+
+  double czas = chrono::duration_cast<chrono::milliseconds> (stop - start).count ();
+  cout << "Czas zapisu (bez wskaznika): " << czas << " ms" << "\n";
 
   delete[] tablica;
 
@@ -32,7 +32,7 @@ int main ()
   int *wskaznik = tablica;
 
   //zacznij odliczac czas
-  start = clock ();
+  start = chrono::high_resolution_clock::now ();
   //wczytywanie liczb do tablicy
   for (int i = 0; i < ile; i++)
     {
@@ -40,9 +40,9 @@ int main ()
       *wskaznik += 50;
       wskaznik++;
     }
-  stop = clock ();
-  czas = (double) (stop - start) / CLOCKS_PER_SEC;
-  cout << "Czas zapisu (ze wskaznikiem): " << czas << " s";
+  stop = chrono::high_resolution_clock::now ();
+  czas = chrono::duration_cast<chrono::milliseconds> (stop - start).count ();
+  cout << "Czas zapisu (ze wskaznikiem): " << czas << " ms";
 
   delete[] tablica;
 

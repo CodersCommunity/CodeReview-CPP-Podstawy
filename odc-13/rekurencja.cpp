@@ -36,10 +36,10 @@ long int silnia (int n)
 
 int main ()
 {
-  cout << f (3) << endl;
-  cout << potega (3, 4) << endl;
-  cout << fib (6) << endl;
-  cout << silnia (6) << endl;
+  cout << f (3) << "\n";
+  cout << potega (3, 4) << "\n";
+  cout << fib (6) << "\n";
+  cout << silnia (6) << "\n";
 
   return 0;
 }

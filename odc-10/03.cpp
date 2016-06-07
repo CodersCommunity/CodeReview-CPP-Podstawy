@@ -20,11 +20,11 @@ int main ()
       1.5f, 2.3f, 0.75f
   };
 
-  cout << "Srednia wynosi: " << srednia (tablica, 3) << endl;
+  cout << "Srednia wynosi: " << srednia (tablica, 3) << "\n";
 
-  cout << tablica[0] << endl;
-  cout << tablica[1] << endl;
-  cout << tablica[2] << endl;
+  cout << tablica[0] << "\n";
+  cout << tablica[1] << "\n";
+  cout << tablica[2] << "\n";
 
   return 0;
 }
