@@ -23,11 +23,12 @@ do
   if [ ! -d "$DIR" ]; then
     mkdir "$DIR"
   fi
-  $CXX -pthread -std=c++11 -Wall -Wextra "$filename" -o "$DIR/$(basename "$filename" .cpp)" || COUNTER=$[$(cat $TEMPFILE) + 1]
+  $CXX -std=c++11 -Wall -Wextra "$filename" -o "$DIR/$(basename "$filename" .cpp)" || COUNTER=$[$(cat $TEMPFILE) + 1]
   echo $COUNTER > $TEMPFILE
 done
 
-if [ $(cat $TEMPFILE) -gt 0 ]; then
+if [ "$(cat $TEMPFILE)" != "" ]
+then
    unlink $TEMPFILE
    exit 1
 fi
