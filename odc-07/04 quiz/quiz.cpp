@@ -6,10 +6,6 @@ using namespace std;
 
 int main ()
 {
-  int nr_linii = 1;
-  string linia;
-  int nr_pytania = 0;
-
   fstream plik;
   plik.open ("quiz.txt", ios::in);
 

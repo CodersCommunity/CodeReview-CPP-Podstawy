@@ -129,7 +129,7 @@ void add ()
   cin >> liczba;
 
   //drzewo puste
-  if (pusty[1] == true)
+  if (pusty[1])
     {
       korzen = &dane[1];
       *korzen = liczba;
@@ -140,9 +140,9 @@ void add ()
       bool znalazlem_miejsce = false;
       int wezel = 1;
 
-      while (znalazlem_miejsce == false)
+      while (!znalazlem_miejsce)
         {
-          if (pusty[wezel] == true)
+          if (pusty[wezel])
             {
               znalazlem_miejsce = true;
               dane[wezel] = liczba;
@@ -178,7 +178,7 @@ void find ()
   bool znalazlem = false;
   int wezel = 1;
 
-  while (znalazlem == false)
+  while (!znalazlem)
     {
       if (liczba == dane[wezel])
         {
@@ -237,9 +237,11 @@ int main ()
           case 2:
             find ();
           break;
+          case 3:
+            return 0;
         }
 
     }
-  while (wybor != 3);
-  return 0;
+  while (true);
+
 }
